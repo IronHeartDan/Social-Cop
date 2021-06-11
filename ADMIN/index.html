@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="actions.js"></script>
+</head>
+<body>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-firestore.js"></script>
+
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+  var firebaseConfig = {
+    apiKey: "AIzaSyCxHWaO7sTUasw6tHwhW66eAKpSJXWjB4w",
+    authDomain: "social-cop-f84a2.firebaseapp.com",
+    databaseURL: "https://social-cop-f84a2.firebaseio.com",
+    projectId: "social-cop-f84a2",
+    storageBucket: "social-cop-f84a2.appspot.com",
+    messagingSenderId: "864765232785",
+    appId: "1:864765232785:web:c7fc59e2ded60d4e716130",
+    measurementId: "G-X1P3NGF02P"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+
+
+
+  var db = firebase.firestore();
+ 
+  
+
+  db.collection("issues").onSnapshot(function(querySnapshot) {
+        var int = 0;
+        var issues = [];
+        querySnapshot.forEach(function(doc) {
+                issues.push(doc.data());
+        });
+        showIssues(issues);
+    });
+
+    var check = 0;
+function showIssues(issues){
+    var int = 0;
+    var con = document.getElementById("con");
+    issues.forEach(function(issue){
+        int++;
+        var city = issue.city;
+        var locality = issue.locality;
+        var image = issue.proof;
+        var desc = issue.desc;
+        if(int > check){
+            con.innerHTML += "<div class='item'><img src='"+image+"' width='35' height='35'/><div class='details'><h4>"+city+"</h4><h6>"+locality+"</h6></div><div class='actions'><a href='#' id='show'><img src='https://image.flaticon.com/icons/svg/3077/3077351.svg' width='20' height='20'></a><a href='#''><img src='https://image.flaticon.com/icons/svg/1288/1288746.svg' width='20' height='20'></a></div></div>";
+        }
+        
+    });
+    check = int;
+}
+
+
+</script>
+<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-firestore.js"></script>
+
+    <nav>
+        <img src="https://image.flaticon.com/icons/svg/3011/3011443.svg" width="35" height="35"/>
+        <a href="#">Home</a>
+        <a href="#">All-Complaints</a>
+        <a href="#" class="log-out"><img src="https://www.flaticon.com/premium-icon/icons/svg/3031/3031703.svg" width="35" height="35"/></a>
+    </nav>
+
+
+    <section>
+        <div class="view-con" id="view-con">
+            <img src="res/close.svg" id="close"/>
+            <div class="title">
+                <h1>Danish Khan</h1>
+                <h4>Vadodara</h4>
+            </div>
+            <div class="show-details">
+                <h4><u>Limbda</u></h4>
+                <div class="img-con">
+                    <button id="prev"><</button>
+                    <button id="next">></button>
+                    <img src="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Flaurenfix%2Ffiles%2F2018%2F04%2FPothole-damage.jpg" class="proof"/>
+                </div>
+
+
+                <iframe  frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=Limbda%20Vadodara+(Vadodara)&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+        
+               
+                 <div class="text">
+
+                    Respected sir,
+     I’m a  resident of Valram dham soc located in Sitanagar and been living here for the past five years. Unfortunately since the day I arrived in Sitanagar the condition of the roads had never been better.
+The roads are unstructured and are accompanied by potholes in the rainy season. The situation got so worse that I wasn’t even able to reach my office on time. There were various times when I nearly met up with accident.
+I tried to complain to the authorities responsible for the construction of these roads but my efforts were in vain.
+So please be kind enough to take some immediate actions in order to solve the problems and provide security to not just me but everyone around me as well.
+Thanking You,
+Yours respectfully
+Saurabh Singh
+
+
+                </div>
+            </div>
+            <div class="btn-con">
+                <button>Accept</button>
+                <button>Delete</button>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h1>Live Complaints</h1>
+        <div class="con" id="con">
+
+        </div>
+    </section>
+
+</body>
+</html>

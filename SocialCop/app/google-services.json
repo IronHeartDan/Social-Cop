@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "864765232785",
+    "firebase_url": "https://social-cop-f84a2.firebaseio.com",
+    "project_id": "social-cop-f84a2",
+    "storage_bucket": "social-cop-f84a2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864765232785:android:f339f6a740ea791b716130",
+        "android_client_info": {
+          "package_name": "com.danapps.social_cop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864765232785-vafqe5f3putv3g609cogi1a2qf8vbg61.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDw4RoUDyTnOvsatRmcXYta0iymqXrmD1o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "864765232785-vafqe5f3putv3g609cogi1a2qf8vbg61.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
